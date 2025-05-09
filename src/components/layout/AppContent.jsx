@@ -2,6 +2,7 @@ import { Layout, Typography } from 'antd'
 import { useCrypto } from '../../context/crypto-context'
 import PortfolioChart from '../PortfolioChart'
 import AssetsTable from '../AssetsTable'
+import { useEffect } from 'react'
 
 const contentStyle = {
   textAlign: 'center',
@@ -13,6 +14,7 @@ const contentStyle = {
 
 export default function AppContent() {
   const { assets, crypto } = useCrypto()
+
 
   const cryptoPriceMap = crypto.reduce((acc, c) => {
     acc[c.id] = c.price
