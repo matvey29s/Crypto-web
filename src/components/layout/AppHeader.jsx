@@ -37,11 +37,23 @@ export default function AppHeader() {
     setModal(true)
   }
 
+  function useWindowWidth() {
+    const [width, setWidth] = useState(window.innerWidth);
+  
+    useEffect(() => {
+      const handleResize = () => setWidth(window.innerWidth);
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }, []);
+  
+    return width;
+  }
+  const width = useWindowWidth();
   return (
     <Layout.Header style={headerStyle}>
       <Select
         style={{
-          width: "calc(25% - 25px)",
+          width: width < 900 ? "150px" : "calc(25% - 25px)",
           
         }}
         open={select}
@@ -65,7 +77,7 @@ export default function AppHeader() {
         )}
       />
 
-      <Button type="primary" style={{width:"10%",marginRight:"5%"}} onClick={() => setDrawer(true)}>
+      <Button type="primary" style={{width: width < 900 ? "80px" : "10%"}} onClick={() => setDrawer(true)}>
         Add Asset
       </Button>
 

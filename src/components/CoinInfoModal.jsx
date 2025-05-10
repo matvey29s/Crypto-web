@@ -1,4 +1,4 @@
-import { Tag, Typography, Divider } from 'antd'
+import { Tag, Typography, Divider,Space } from 'antd'
 import CoinInfo from './CoinInfo'
 
 export default function CoinInfoModal({ coin }) {
@@ -7,19 +7,27 @@ export default function CoinInfoModal({ coin }) {
       <CoinInfo coin={coin} withSymbol />
       <Divider />
       <Typography.Paragraph>
-        <Typography.Text strong>1 hour: </Typography.Text>
-        <Tag color={coin.priceChange1h > 0 ? 'green' : 'red'}>
-          {coin.priceChange1h}%
-        </Tag>
-        <Typography.Text strong>1 day: </Typography.Text>
-        <Tag color={coin.priceChange1d > 0 ? 'green' : 'red'}>
-          {coin.priceChange1d}%
-        </Tag>
-        <Typography.Text strong>1 week: </Typography.Text>
-        <Tag color={coin.priceChange1w > 0 ? 'green' : 'red'}>
-          {coin.priceChange1w}%
-        </Tag>
-      </Typography.Paragraph>
+  <Space size={[16, 8]} wrap>
+    <Space>
+      <Typography.Text strong>1 hour: </Typography.Text>
+      <Tag color={coin.priceChange1h > 0 ? 'green' : 'red'}>
+        {coin.priceChange1h}%
+      </Tag>
+    </Space>
+    <Space>
+      <Typography.Text strong>1 day: </Typography.Text>
+      <Tag color={coin.priceChange1d > 0 ? 'green' : 'red'}>
+        {coin.priceChange1d}%
+      </Tag>
+    </Space>
+    <Space>
+      <Typography.Text strong>1 week: </Typography.Text>
+      <Tag color={coin.priceChange1w > 0 ? 'green' : 'red'}>
+        {coin.priceChange1w}%
+      </Tag>
+    </Space>
+  </Space>
+</Typography.Paragraph>
       <Typography.Paragraph>
         <Typography.Text strong>Price: </Typography.Text>
         {coin.price.toFixed(2)}$

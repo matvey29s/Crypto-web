@@ -3,3 +3,43 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+@media (max-width: 900px) {
+  .ant-layout {
+    display: block;
+
+  }
+  
+  .ant-layout-header {
+    display: block;
+
+  }
+  
+  .ant-layout-sider {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 auto !important;
+    height: auto;
+    display: block !important;
+    position: static;
+  }
+  
+  .ant-layout-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 auto !important;
+    height: auto;
+    display: block !important;
+    position: static;
+  }
+}
+
+/* Десктопная версия */
+@media (min-width: 900px) {
+  .ant-layout-sider {
+    flex: 0 0 25% !important;
+    max-width: 25% !important;
+    min-width: 25% !important;
+    width: 25% !important;
+  }
+}
