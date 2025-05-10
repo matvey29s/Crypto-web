@@ -8,7 +8,9 @@ export default function PortfolioChart() {
   const { assets } = useCrypto()
 
   const data = {
+
     labels: assets.map((a) => a.name),
+    
     datasets: [
       {
         label: '$',
@@ -32,6 +34,7 @@ export default function PortfolioChart() {
         marginBottom: '1rem',
         justifyContent: 'center',
         height: 400,
+        marginTop:50
       }}
     >
       <Pie data={data} />
